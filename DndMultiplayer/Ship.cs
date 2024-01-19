@@ -8,6 +8,7 @@ namespace BattleshipMultiplayer
 {
     internal abstract class Ship
     {
-       
+        private int Health { get; set; }
+        public abstract void Print();
     }
 }

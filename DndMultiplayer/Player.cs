@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer
 {
-    internal abstract class Player: Fireable
+    internal abstract class Player
     {
         private List<Ship> ships;
         public abstract void print();
 
-        public void Fire()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
