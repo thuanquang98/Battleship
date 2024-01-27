@@ -33,14 +33,32 @@ namespace BattleshipMultiplayer
                 } 
             }
 
-            p1.SetState(this, p1Board);
-            p2.SetState(this, p2Board);
+            p1.SetState(this, p1Board, new List<Ship>());
+            p2.SetState(this, p2Board, new List<Ship>());
             
         }
         public void Start()
         {
             Console.WriteLine("Started Game...");
+           
+            int playerStart = (int)new Random().NextInt64(0,2);
+            if (playerStart == 0)
+            { // if 0 then human start first
+                Console.WriteLine("Human Player starts first");
+                p1.PlayMove();
+            }
+            else
+            {   // if 1, then AI start first
+                Console.WriteLine("AI Player starts first");            
+                p2.PlayMove();
+            }
             
+            //after the player play move update move
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
         }
 
         public void Stop()
@@ -48,9 +66,6 @@ namespace BattleshipMultiplayer
             throw new NotImplementedException();
         }
 
-        public void Update()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

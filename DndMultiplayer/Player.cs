@@ -6,17 +6,12 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer
 {
-    internal abstract class Player
+    internal class Player
     {
-        protected GameLogic gameState;
-        private Status[,] playerBoard;
-
-        public void SetState(GameLogic gl, Status[,] board)
-        {
-            gameState = gl;
-            playerBoard = board;
-        }
-        public abstract void Print();
-
+        protected List<Ship> Ships {  get; set; }
+        protected GameLogic Game {  get; set; }
+        protected Status[,] PlayerBoard {  get; set; }
+        protected Status[,] EnemyBoard { get; set; }
+      
     }
 }

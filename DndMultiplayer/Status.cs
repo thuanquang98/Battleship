@@ -8,7 +8,7 @@ namespace BattleshipMultiplayer
 
     public enum Status
     {
-        HIT, MISS, NONE
+        NONE, OBJECT, HIT, MISS
     }
 }
 

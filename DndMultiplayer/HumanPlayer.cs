@@ -1,12 +1,9 @@
 ﻿namespace BattleshipMultiplayer
 {
-    internal class HumanPlayer : Player
+    internal class HumanPlayer : IPlay
     {
 
-        public HumanPlayer() { 
-            
-        }
-        public override void Print()
+        public void PlayMove()
         {
             throw new NotImplementedException();
         }

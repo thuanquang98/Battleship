@@ -1,8 +1,8 @@
 ﻿namespace BattleshipMultiplayer
 {
-    internal class BotPlayer : Player
+    internal class BotPlayer : IPlay
     {
-        public override void Print()
+        public void PlayMove()
         {
             throw new NotImplementedException();
         }
