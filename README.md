@@ -34,13 +34,15 @@
    - In the command line, the prompt will tell you the ship's name and the number of cells it takes up
        - it will ask for 'v' or 'h' to decide the ship's placement vertically or horizontally
        - it will ask for the starting cell and end cell in the following format `[row 1-10][col A-J] [row 1-10][col A-J]`
-       - it will prompt error message accordingly based on what the user error is. e.g "You can only place the ship vertically or horizontally"
+       - it will prompt an error message accordingly based on what the user error is. e.g "You can only place the ship vertically or horizontally"
    - After the player places their ships on the board, the game itself will randomly decide who start
 #### Battle phase
    - The player will given two modes to choose from the prompt
-       - Fire mode
-       - Skill mode
-       - Help mode
-       - You can enter "0" to back out of the mode or to exit the game
+       - (1) Fire mode - ask for cell coordinate to fire with the following format [column][row]
+       - (2) Skill mode - display a list of available weapons
+       - (3) Help mode - display how to play the game and command to play
+       - (0) Exit (enter 'y' or 'n' to confirm the choice)
+    
 
 #### End phase
+   - The game will end when either all player's ships have been sunk or a player quits the game.
