@@ -1,6 +1,6 @@
 ﻿namespace BattleshipMultiplayer
 {
-    internal class BotPlayer : IPlay
+    internal class BotPlayer : IPlayable
     {
         public void PlayMove()
         {

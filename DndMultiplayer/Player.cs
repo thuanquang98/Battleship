@@ -1,17 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BattleshipMultiplayer
+﻿namespace BattleshipMultiplayer
 {
-    internal class Player
+    public class Player
     {
-        protected List<Ship> Ships {  get; set; }
-        protected GameLogic Game {  get; set; }
-        protected Status[,] PlayerBoard {  get; set; }
-        protected Status[,] EnemyBoard { get; set; }
-      
+        private readonly int player_id;
+        private readonly string player_name;
+        private readonly List<Ship> ships_list; 
+        public Player(int id, string name) 
+        {
+            player_id = id;
+            player_name = name;
+            ships_list = new List<Ship>();
+        }
+
+        public int Id { 
+            get => player_id; 
+        }
+
+        public string Name
+        {
+            get => player_name;
+        }
+
+        public void AddShip(Ship ship)
+        {
+            ships_list.Add(ship);
+        }
+
     }
 }

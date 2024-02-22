@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer
 {
-    internal interface IPlay
+    public interface IPlayable
     {
         public void PlayMove();
     }

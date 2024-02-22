@@ -7,7 +7,7 @@ namespace BattleshipMultiplayer
     {
         static void Main()
         {
-            Console.WriteLine("Welcome to Battleships!\n Enter 's' for single player, enter 'm' for Multiplayer\nEnter 'q' to quit the game");
+            /*Console.WriteLine("Welcome to Battleships!\n Enter 's' for single player, enter 'm' for Multiplayer\nEnter 'q' to quit the game");
             string? input = null;
 
             do
@@ -34,9 +34,10 @@ namespace BattleshipMultiplayer
                 {
                     Console.WriteLine($"{input} is not a valid command\n Enter 's' for single player, enter 'm' for Multiplayer\nEnter 'q' to quit the game");
                 }
-            } while (true);    
+            } while (true);   */
+            int x, y = 5;
+            Console.WriteLine();
 
-            
         }
         
     }

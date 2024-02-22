@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer
 {
-    internal interface Human
+    public interface Human
     {
-        public void setInfo(int row, int column);
+        public void setAnswer();
     }
 }

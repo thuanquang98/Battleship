@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer
 {
-    internal interface GridUI
+    public enum Turn
     {
-        public void UpdateGrid();
-        public void PrintGrid();
-        public void SetUI(Human player);
+        SELF, OTHER
     }
 }

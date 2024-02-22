@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer
 {
-    internal class Ship
+    public class Ship
     {
+        public ShipType type;
+
+        public Ship() { }
+
+
+
         public int Health;
         public bool IsAlive { get; }
-        public void Print() //for debug purpose
+
+
+
+        public void ToString() //for debug purpose
         {
             Console.WriteLine($"Health: {Health}, Is Alive?: {IsAlive}");
         }

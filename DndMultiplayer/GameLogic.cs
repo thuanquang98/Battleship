@@ -8,8 +8,6 @@ namespace BattleshipMultiplayer
 {
     internal interface GameLogic
     {
-        void Start();
-        void Update();
-        void Stop();
+        public void Run();
     }
 }

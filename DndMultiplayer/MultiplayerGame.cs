@@ -8,17 +8,7 @@ namespace BattleshipMultiplayer
 {
     internal class MultiplayerGame : GameLogic
     {
-        public void Start()
-        {
-            Console.WriteLine("Started Game...");
-        }
-
-        public void Stop()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update()
+        public void Run()
         {
             throw new NotImplementedException();
         }
