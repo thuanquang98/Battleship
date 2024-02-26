@@ -11,5 +11,8 @@ namespace BattleshipMultiplayer.View
     {
         public void DisplayGrid();
         public void DisplayError(string msg);
+
+        public void DisplayOptions();
+
     }
 }

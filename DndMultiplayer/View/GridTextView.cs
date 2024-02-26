@@ -1,13 +1,16 @@
-﻿using BattleshipMultiplayer.Exceptions;
+﻿using BattleshipMultiplayer.API;
+using BattleshipMultiplayer.API.Events;
+using BattleshipMultiplayer.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer.View
 {
-    public class GridTextView: View
+    public class GridTextView: View, GameListener
     {
         private const int DEFAULT_WIDTH = 10;
         private const int DEFAULT_HEIGHT = 10;
@@ -94,9 +97,6 @@ namespace BattleshipMultiplayer.View
             }
         }
 
-        public int GridLength { get; private set; }
-        public int GridWidth { get; private set; }
-
         private void DisplayStats()
         {
             //display player's name
@@ -105,6 +105,16 @@ namespace BattleshipMultiplayer.View
             //number of abilities used
             //
 
+            throw new NotImplementedException();
+        }
+
+        public void DisplayOptions()
+        {
+            throw new NotImplementedException();
+        }
+
+        void GameListener.Notify(Event ev)
+        {
             throw new NotImplementedException();
         }
     }
