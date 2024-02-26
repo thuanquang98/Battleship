@@ -13,8 +13,7 @@ namespace BattleshipMultiplayer.View
         public void DisplayGrid();
         public void DisplayError(string msg);
 
-        public void DisplayWinner(Player player);
+        public void DisplayOptions();
 
-        public BattleshipView GetView();
     }
 }

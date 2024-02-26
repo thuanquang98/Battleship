@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using BattleshipMultiplayer.API;
+using BattleshipMultiplayer.API.Events;
 using BattleshipMultiplayer.Model;
 using BattleshipMultiplayer.View;
 
 namespace BattleshipMultiplayer.Controller
 {
-    internal class BattleshipController
+    internal class BattleshipController: GameListener
     {
         private Human player;
         private BattleshipView gridView;
@@ -42,7 +42,7 @@ namespace BattleshipMultiplayer.Controller
 
             try
             {
-                BattleshipGame game = new BattleshipGame(player);
+                //BattleshipGame game = new BattleshipGame(player);
 
                 success = true;
             }catch (Exception ex)
@@ -55,5 +55,9 @@ namespace BattleshipMultiplayer.Controller
             return success;
         }
 
+        public void Notify(Event ev)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

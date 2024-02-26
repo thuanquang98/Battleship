@@ -19,7 +19,7 @@ namespace BattleshipMultiplayer
 
 
 
-        public void ToString() //for debug purpose
+        public void ShowInfo() //for debug purpose
         {
             Console.WriteLine($"Health: {Health}, Is Alive?: {IsAlive}");
         }
