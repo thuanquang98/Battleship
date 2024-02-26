@@ -1,4 +1,6 @@
-﻿namespace BattleshipMultiplayer
+﻿using BattleshipMultiplayer.Model;
+
+namespace BattleshipMultiplayer
 {
     public class HumanPlayer : Player, IPlayable, Human 
     {

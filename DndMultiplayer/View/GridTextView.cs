@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer.View
 {
-    public class GridTextView: View
+    public class GridTextView: GridView
     {
         private const int DEFAULT_WIDTH = 10;
         private const int DEFAULT_HEIGHT = 10;

@@ -11,11 +11,12 @@ namespace BattleshipMultiplayer.Controller
     internal class BattleshipController
     {
         private Human player;
-        private GridTextView gridView;
+        private BattleshipView gridView;
 
-        public BattleshipController(Human player)
+        public BattleshipController(Human player, BattleshipView view)
         {
             this.player = player;
+            this.gridView = view;
         }
 
         public BattleshipController()
@@ -26,7 +27,6 @@ namespace BattleshipMultiplayer.Controller
         //start the game by establishing link with the models and view
         public void Start()
         {
-            gridView = new GridTextView();
 
             bool gameBuilt = CreateGame();
 

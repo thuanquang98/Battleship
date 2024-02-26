@@ -1,40 +1,32 @@
 ﻿
+using BattleshipMultiplayer.Controller;
 using System.Collections.Concurrent;
 
 namespace BattleshipMultiplayer
 {
     static class Application
     {
-        static void Main()
-        {
-            /*Console.WriteLine("Welcome to Battleships!\n Enter 's' for single player, enter 'm' for Multiplayer\nEnter 'q' to quit the game");
-            string? input = null;
+        private static string menu_msg = "Welcome to Battleships!\n Enter '1' for single player, enter '2' for Multiplayer\nEnter 'q' to quit the game";
 
-            do
+        static void Main()
+        {   
+            
+
+            try
             {
-                input = Console.ReadLine();
-                if (input == "s")
-                {
-                    GameLogic gameLogic = new SinglePlayerGame();
-                    gameLogic.Start();
-                    break;
-                }
-                else if (input == "m")
-                {
-                    GameLogic gameLogic = new MultiplayerGame();
-                    gameLogic.Start();
-                    break;
-                }
-                else if (input == "q")
-                {                
-                    Console.WriteLine("Exit game successfully...");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine($"{input} is not a valid command\n Enter 's' for single player, enter 'm' for Multiplayer\nEnter 'q' to quit the game");
-                }
-            } while (true);   */
+                BattleshipController controller = new BattleshipController();
+
+                controller.SetGame();
+
+                controller.Build();
+
+                controller.Run();
+                
+            }catch (Exception ex)
+            {
+                Console.WriteLine("Error has occurred;");
+                Console.WriteLine(ex.Message);   
+            }
             int x, y = 5;
             Console.WriteLine();
 
