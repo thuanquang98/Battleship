@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer.API
 {
-    internal interface GameListener
+    public interface GameListener
     {
         public void Notify(Event ev);
     }

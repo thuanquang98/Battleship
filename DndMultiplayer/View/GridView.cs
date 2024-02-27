@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer.View
 {
-    internal interface BattleshipView
+    public interface GridView
     {
         public void DisplayGrid();
         public void DisplayError(string msg);

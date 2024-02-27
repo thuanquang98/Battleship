@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer.API.Events
 {
-    internal class Event
+    public abstract class Event
     {
     }
 }

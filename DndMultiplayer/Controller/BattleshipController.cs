@@ -4,6 +4,7 @@ using System.Text;
 using BattleshipMultiplayer.API;
 using BattleshipMultiplayer.API.Events;
 using BattleshipMultiplayer.Model;
+using BattleshipMultiplayer.Model.Interfaces;
 using BattleshipMultiplayer.View;
 
 namespace BattleshipMultiplayer.Controller
@@ -11,9 +12,9 @@ namespace BattleshipMultiplayer.Controller
     internal class BattleshipController: GameListener
     {
         private Human player;
-        private BattleshipView gridView;
+        private GridView gridView;
 
-        public BattleshipController(Human player, BattleshipView view)
+        public BattleshipController(Human player, GridView view)
         {
             this.player = player;
             this.gridView = view;

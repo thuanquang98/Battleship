@@ -1,5 +1,7 @@
 ﻿using BattleshipMultiplayer.API;
 using BattleshipMultiplayer.API.Events;
+using BattleshipMultiplayer.Enumeration;
+using BattleshipMultiplayer.Model.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +9,9 @@ using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleshipMultiplayer.Model
+namespace BattleshipMultiplayer.Application
 {
-    internal class BattleshipGame: GameListener
+    internal class BattleshipGame : GameListener
     {
         private IPlayable self;
         private bool gameOver;
@@ -29,7 +31,7 @@ namespace BattleshipMultiplayer.Model
 
         public void Run()
         {
-            throw new NotImplementedException();            
+            throw new NotImplementedException();
         }
 
     }

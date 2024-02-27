@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 /**
  * This board class represents the state of the board and it will return
  * the player's board and also the state of the opponent's side based on what is known
  * 
  * **/
-namespace BattleshipMultiplayer
+namespace BattleshipMultiplayer.Model
 {
     internal class Board
     {
@@ -20,7 +19,8 @@ namespace BattleshipMultiplayer
         private int height;
 
 
-        public Board(int length) {
+        public Board(int length)
+        {
             height = length;
             width = length;
             board = InitBoard();
@@ -42,14 +42,14 @@ namespace BattleshipMultiplayer
             validateMove();
         }
 
-        public void UpdateTopBoard() 
+        public void UpdateTopBoard()
         {
             validateMove();
         }
 
         private void validateMove()
         {
-            
+
         }
 
     }

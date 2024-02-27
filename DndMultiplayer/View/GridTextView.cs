@@ -1,6 +1,7 @@
 ﻿using BattleshipMultiplayer.API;
 using BattleshipMultiplayer.API.Events;
 using BattleshipMultiplayer.Exceptions;
+using BattleshipMultiplayer.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer.View
 {
-    public class GridTextView: View, GameListener
+    public class GridTextView: GridView, GameListener
     {
         private const int DEFAULT_WIDTH = 10;
         private const int DEFAULT_HEIGHT = 10;
@@ -18,19 +19,21 @@ namespace BattleshipMultiplayer.View
         private int width;
         //player interact with
         char[,] textGrid;
-        public GridTextView(int width, int height)
+        EventManager eventManager;
+        public GridTextView(BattleshipGame game, int width, int height)
         {
-            this.height = width;
-            this.width = height;
-            textGrid = new char[width, height];
+            this.width = width;
+            this.height = height;
+            eventManager = manager;
         }
 
-        public GridTextView()
+        public GridTextView(EventManager manager)
         {
             height = DEFAULT_HEIGHT;
             width = DEFAULT_WIDTH;
             textGrid = new char[DEFAULT_WIDTH, DEFAULT_HEIGHT];
         }
+
 
         //grid design
         /*
@@ -113,8 +116,15 @@ namespace BattleshipMultiplayer.View
             throw new NotImplementedException();
         }
 
-        void GameListener.Notify(Event ev)
+        
+        public void Notify(Event ev)
         {
+
+            //to initalize view
+            
+            //to 
+            
+
             throw new NotImplementedException();
         }
     }
