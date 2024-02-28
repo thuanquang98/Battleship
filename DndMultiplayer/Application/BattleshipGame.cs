@@ -1,32 +1,26 @@
 ﻿using BattleshipMultiplayer.API;
 using BattleshipMultiplayer.API.Events;
-using BattleshipMultiplayer.Enumeration;
-using BattleshipMultiplayer.Model.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
+using BattleshipMultiplayer.Model;
 
 namespace BattleshipMultiplayer.Application
 {
-    internal class BattleshipGame : GameListener
+    public class BattleshipGame : EventManager
     {
-        private IPlayable self;
-        private bool gameOver;
-        private Turn turn;
+        private IPlayable _self;
+        private bool _gameOver;
+        private Turn _turn;
+        private Board _playerBoard;
+        private Board _opBoard;
 
-        public BattleshipGame(IPlayable p1)
+        public BattleshipGame()
         {
-            self = p1;
-            gameOver = false;
-
+            _gameOver = false;
         }
 
-        public void Notify(Event ev)
+        public void SetBoard(int width, int height)
         {
-            throw new NotImplementedException();
+            _playerBoard = new Board(width, height);
+            _opBoard = new Board(width, height);
         }
 
         public void Run()
@@ -34,5 +28,19 @@ namespace BattleshipMultiplayer.Application
             throw new NotImplementedException();
         }
 
+        public void RegisterListener(GameListener listener)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BroadCastEvent()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Notify(GameListener listener)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

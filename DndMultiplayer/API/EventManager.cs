@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer.API
 {
-    public class EventManager
+    public interface EventManager
     {
-        public void RegisterListener(GameListener listener)
-        {
-
-        }
+        public void RegisterListener(GameListener listener);
+        public void BroadCastEvent();
+        public void Notify(GameListener listener);
     }
 }

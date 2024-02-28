@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 /**
- * This board class represents the state of the board and it will return
- * the player's board and also the state of the opponent's side based on what is known
+ * This _board class represents the state of the _board and it will return
+ * the player's _board and also the state of the opponent's side based on what is known
  * 
  * **/
 namespace BattleshipMultiplayer.Model
@@ -14,42 +14,44 @@ namespace BattleshipMultiplayer.Model
     internal class Board
     {
 
-        private char[,] board;
-        private int width;
-        private int height;
+        private Status[,] _board;
+        private readonly int width;
+        private readonly int height;
+        private const int DEFAULT_BOARD_LENGTH = 10;
 
-
-        public Board(int length)
+        public Board(int width, int height)
         {
-            height = length;
-            width = length;
-            board = InitBoard();
+            this.height = height;
+            this.width = width;
+            _board = InitBoard();
         }
-        //default 10x10 board
+        //default 10x10 _board
         public Board()
         {
-            width = 10;
-            height = 10;
+            this.width = DEFAULT_BOARD_LENGTH;
+            this.height = DEFAULT_BOARD_LENGTH;
         }
 
-        private char[,] InitBoard()
+        private Status[,] InitBoard()
         {
             throw new NotImplementedException();
         }
-
-        public void UpdateBottomBoard()
+        
+        //update the status of the cell at [row][col]
+        public void SetCell(int row, int col, Status status)
         {
-            validateMove();
+            _board[row, col] = status;
         }
 
-        public void UpdateTopBoard()
-        {
-            validateMove();
-        }
-
-        private void validateMove()
-        {
-
+        public Status[,] Grid { 
+            get => _board; 
+            set
+            {
+                if (value.GetLength(0) == width && value.GetLength(1) == height)
+                {
+                    this._board = value;
+                }
+            } 
         }
 
     }

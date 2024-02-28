@@ -1,5 +1,6 @@
 ﻿using BattleshipMultiplayer.API;
 using BattleshipMultiplayer.API.Events;
+using BattleshipMultiplayer.Application;
 using BattleshipMultiplayer.Exceptions;
 using BattleshipMultiplayer.Model;
 using System;
@@ -15,25 +16,14 @@ namespace BattleshipMultiplayer.View
     {
         private const int DEFAULT_WIDTH = 10;
         private const int DEFAULT_HEIGHT = 10;
-        private int height;
-        private int width;
         //player interact with
         char[,] textGrid;
-        EventManager eventManager;
-        public GridTextView(BattleshipGame game, int width, int height)
+        private EventManager game;
+        public GridTextView(EventManager eventHandler)
         {
-            this.width = width;
-            this.height = height;
-            eventManager = manager;
+            this.game = eventHandler;
+            game.RegisterListener(this);
         }
-
-        public GridTextView(EventManager manager)
-        {
-            height = DEFAULT_HEIGHT;
-            width = DEFAULT_WIDTH;
-            textGrid = new char[DEFAULT_WIDTH, DEFAULT_HEIGHT];
-        }
-
 
         //grid design
         /*
@@ -49,11 +39,6 @@ namespace BattleshipMultiplayer.View
          * 8|   |   |   |   |   |   |   |   |   |   |
          * 9|   |   |   |   |   |   |   |   |   |   |
          */
-
-        public void Update(Position pos)
-        {
-            //try to put it in the spot, but
-        }
 
         public void DisplayError(string msg)
         {
