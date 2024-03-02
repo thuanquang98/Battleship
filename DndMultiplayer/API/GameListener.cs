@@ -10,5 +10,7 @@ namespace BattleshipMultiplayer.API
     public interface GameListener
     {
         public void Notify(Event ev);
+
+        public void SetEventHandler(EventManager evManager);
     }
 }

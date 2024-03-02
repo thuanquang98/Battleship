@@ -17,11 +17,10 @@ namespace BattleshipMultiplayer.View
         //link to the game
         private readonly BattleshipGame _game;
         private bool _running;
+
         public BattleshipTextView(BattleshipGame game)
         {
             _game = game;
-            _game.RegisterListener(this);
-
             _running = false;
         }
 
@@ -45,12 +44,12 @@ namespace BattleshipMultiplayer.View
             Console.WriteLine(msg);
         }
 
+        //TODO: fill player grid with their object
         public void DisplayGrid()
         {
             Board playerBoard = _game.GetPlayerBoard();
             Board enemyBoard = _game.GetOpponentBoard();
 
-            char water = '~';
             char[,] playerTextGrid = new char[playerBoard.GetBoardHeight(),playerBoard.GetBoardWidth()];
             char[,] enemyTextGrid = new char[playerBoard.GetBoardHeight(),playerBoard.GetBoardWidth()];
 
@@ -58,7 +57,7 @@ namespace BattleshipMultiplayer.View
             FillWater(playerTextGrid);
             FillWater(enemyTextGrid);
 
-            //fill player grid with their object
+            //TODO: fill player grid with their object
 
             //print the player board
             PrintPlayerBoard(playerTextGrid);
@@ -82,18 +81,21 @@ namespace BattleshipMultiplayer.View
         private void PrintPlayerBoard(char[,] board)
         {
             string[] grid = new string[board.GetLength(0) + 1];
-            grid[0] = "\\|";
+            StringBuilder xGrid = new StringBuilder();
+            xGrid.Append("\\ |");
             //display the coordinate
             for (int i = 0; i < board.GetLength(1); i++)
             {
-                grid[0] += " " + (char)('A' + i) + " |";
+                xGrid.Append(" " + (char)('A' + i) + " |");
             }
 
-            for (int i = 1; i < grid.GetLength(0); i++)
+            Console.WriteLine(xGrid);
+
+            for (int i = 0; i < board.GetLength(0); i++)
             {
                 StringBuilder line = new StringBuilder();
-                line.Append((i - 1).ToString() + " |");
-                for (int j = 0; j < grid.GetLength(1); j++)
+                line.Append((i).ToString() + " |");
+                for (int j = 0; j < board.GetLength(1); j++)
                 {
                     line.Append(" " + board[i, j] + " |");
                 }
@@ -119,7 +121,7 @@ namespace BattleshipMultiplayer.View
             throw new NotImplementedException();
         }
 
-        public void Init()
+        public void Start()
         {
             _running = true;
         }
@@ -128,19 +130,24 @@ namespace BattleshipMultiplayer.View
         public void Notify(Event ev)
         {
 
-            if (ev is InitializeEvent)
+            if (ev is StartEvent)
             {
-                Init();
+                Start();
             } else if (ev is GameEvent)
             {
                 if (_running)
                 {
                     DisplayGrid();
                 }
-            } else if (ev is QuitEvent)
+            } else if (ev is StopEvent)
             {
                 throw new NotImplementedException();
             }
+        }
+
+        public void SetEventHandler(EventManager evManager)
+        {
+            evManager.RegisterListener(this);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace BattleshipMultiplayer.API.Events
 
     }
 
-    public class InitializeEvent: Event
+    public class StartEvent: Event
     {
 
     }
@@ -26,7 +26,7 @@ namespace BattleshipMultiplayer.API.Events
 
     }
 
-    public class QuitEvent: Event
+    public class StopEvent: Event
     {
 
     }

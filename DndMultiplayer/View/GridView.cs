@@ -10,7 +10,6 @@ namespace BattleshipMultiplayer.View
 {
     public interface GridView
     {
-        public void Init();
         public void DisplayGrid();
         public void DisplayError(string msg);
 

@@ -4,7 +4,6 @@ using System.Text;
 using BattleshipMultiplayer.API;
 using BattleshipMultiplayer.API.Events;
 using BattleshipMultiplayer.Model;
-using BattleshipMultiplayer.Model.Interfaces;
 using BattleshipMultiplayer.View;
 
 namespace BattleshipMultiplayer.Controller
@@ -29,36 +28,16 @@ namespace BattleshipMultiplayer.Controller
         public void Start()
         {
 
-            bool gameBuilt = CreateGame();
-
-            if (gameBuilt)
-            {
-
-            }
-        }
-
-        private bool CreateGame()
-        {
-            bool success = false;
-
-            try
-            {
-                //BattleshipGame game = new BattleshipGame(player);
-
-                success = true;
-            }catch (Exception ex)
-            {
-                Console.WriteLine("Fatal problem occurred:");
-                Console.WriteLine(ex.Message);
-            }
-            
-
-            return success;
         }
 
         public void Notify(Event ev)
         {
             throw new NotImplementedException();
+        }
+
+        public void SetEventHandler(EventManager evManager)
+        {
+            evManager.RegisterListener(this);
         }
     }
 }
