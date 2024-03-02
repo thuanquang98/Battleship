@@ -14,14 +14,15 @@ namespace BattleshipMultiplayer.View
 {
     public class BattleshipTextView: GridView, GameListener
     {
-        private const int DEFAULT_WIDTH = 10;
-        private const int DEFAULT_HEIGHT = 10;
-        //player interact with
-        private BattleshipGame _game;
+        //link to the game
+        private readonly BattleshipGame _game;
+        private bool _running;
         public BattleshipTextView(BattleshipGame game)
         {
             _game = game;
             _game.RegisterListener(this);
+
+            _running = false;
         }
 
         //grid design
@@ -118,17 +119,28 @@ namespace BattleshipMultiplayer.View
             throw new NotImplementedException();
         }
 
+        public void Init()
+        {
+            _running = true;
+        }
+
         
         public void Notify(Event ev)
         {
 
             if (ev is InitializeEvent)
             {
-
-            } else if (ev is )
-            
-
-            throw new NotImplementedException();
+                Init();
+            } else if (ev is GameEvent)
+            {
+                if (_running)
+                {
+                    DisplayGrid();
+                }
+            } else if (ev is QuitEvent)
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

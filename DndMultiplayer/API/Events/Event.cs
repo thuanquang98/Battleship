@@ -8,14 +8,7 @@ namespace BattleshipMultiplayer.API.Events
 {
     public abstract class Event
     {
-        private readonly string _message;
-        private readonly string _type;
 
-        public Event(string message, string type)
-        {
-            _message = message;
-            _type = type;
-        }
     }
 
     public class InputEvent: Event
@@ -24,6 +17,16 @@ namespace BattleshipMultiplayer.API.Events
     }
 
     public class InitializeEvent: Event
+    {
+
+    }
+
+    public class GameEvent: Event
+    {
+
+    }
+
+    public class QuitEvent: Event
     {
 
     }
