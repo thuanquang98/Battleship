@@ -42,5 +42,9 @@ namespace BattleshipMultiplayer.Application
         {
             throw new NotImplementedException();
         }
+
+        public Board GetPlayerBoard() {  return _playerBoard; }
+
+        public Board GetOpponentBoard() { return _opBoard; }
     }
 }

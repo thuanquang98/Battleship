@@ -11,7 +11,7 @@ using System.Threading.Tasks;
  * **/
 namespace BattleshipMultiplayer.Model
 {
-    internal class Board
+    public class Board
     {
 
         private Status[,] _board;
@@ -42,6 +42,10 @@ namespace BattleshipMultiplayer.Model
         {
             _board[row, col] = status;
         }
+
+        public int GetBoardWidth() { return this.width; }
+
+        public int GetBoardHeight() { return this.height; }
 
         public Status[,] Grid { 
             get => _board; 
