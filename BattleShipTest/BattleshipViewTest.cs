@@ -1,5 +1,5 @@
 using BattleshipMultiplayer;
-using BattleshipMultiplayer.Application;
+using BattleshipMultiplayer.Model;
 using BattleshipMultiplayer.View;
 
 namespace BattleShipTest

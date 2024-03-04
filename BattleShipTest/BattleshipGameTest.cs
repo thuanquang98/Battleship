@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleshipMultiplayer
+namespace BattleShipTest
 {
-    internal class MultiplayerGame : GameLogic
+    [TestClass]
+    internal class BattleshipGameTest
     {
-        public void Run()
+        [TestMethod]
+        public void StartGameTest()
         {
-            throw new NotImplementedException();
+
         }
     }
 }

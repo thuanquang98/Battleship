@@ -10,29 +10,32 @@ namespace BattleshipMultiplayer.Controller
 {
     internal class BattleshipController: GameListener
     {
-        private Human player;
-        private GridView gridView;
+        private readonly BattleshipGame _game;
 
-        public BattleshipController(Human player, GridView view)
+        public BattleshipController(BattleshipGame game)
         {
-            this.player = player;
-            this.gridView = view;
-        }
-
-        public BattleshipController()
-        {
-            player = new HumanPlayer(-1, "Thuan");
-        }
-
-        //start the game by establishing link with the models and view
-        public void Start()
-        {
-
+            _game = game;
         }
 
         public void Notify(Event ev)
         {
             throw new NotImplementedException();
+        }
+
+        public void ProcessInput()
+        {
+            string? input = Console.ReadLine();
+
+            try
+            {
+                //split the command based on "space"
+                //if the first input is "quit"
+                //create a "quit" event
+
+            }catch (Exception ex)
+            {
+
+            }
         }
 
         public void SetEventHandler(EventManager evManager)

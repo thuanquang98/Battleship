@@ -1,18 +1,33 @@
 ﻿
+using BattleshipMultiplayer.Controller;
+using BattleshipMultiplayer.Model;
+using BattleshipMultiplayer.View;
 using System.Collections.Concurrent;
 
 namespace BattleshipMultiplayer.Application
 {
-    static class Application
+    public class BattleshipApplication: GameLogic
     {
-        static void Main()
+        private BattleshipGame game;
+        private BattleshipController controller;
+        private BattleshipTextView textView;
+
+        public void Run()
         {
-            //initialize event manager that will be the link that helps communication between Model, View, Controller class
-            //initialize battleship controller, view, model
-            //run the game
+            throw new NotImplementedException();
+        }
+
+        public void Init()
+        {
+            game = new BattleshipGame();
+            controller = new BattleshipController(game);
 
         }
 
+        public void Stop()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

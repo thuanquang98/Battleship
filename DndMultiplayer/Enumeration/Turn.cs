@@ -8,6 +8,6 @@ namespace BattleshipMultiplayer
 {
     public enum Turn
     {
-        SELF, OTHER
+        PLAYER_1, PLAYER_2
     }
 }

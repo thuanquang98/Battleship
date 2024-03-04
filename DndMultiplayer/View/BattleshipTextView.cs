@@ -1,6 +1,5 @@
 ﻿using BattleshipMultiplayer.API;
 using BattleshipMultiplayer.API.Events;
-using BattleshipMultiplayer.Application;
 using BattleshipMultiplayer.Exceptions;
 using BattleshipMultiplayer.Model;
 using System;
@@ -59,6 +58,9 @@ namespace BattleshipMultiplayer.View
 
             //TODO: fill player grid with their object
 
+
+            //clear the board
+            Console.Clear();
             //print the player board
             PrintPlayerBoard(playerTextGrid);
             //space between the board
@@ -121,11 +123,10 @@ namespace BattleshipMultiplayer.View
             throw new NotImplementedException();
         }
 
-        public void Start()
+        private void Start()
         {
             _running = true;
         }
-
         
         public void Notify(Event ev)
         {

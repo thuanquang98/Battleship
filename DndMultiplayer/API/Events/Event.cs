@@ -11,11 +11,6 @@ namespace BattleshipMultiplayer.API.Events
 
     }
 
-    public class InputEvent: Event
-    {
-
-    }
-
     public class StartEvent: Event
     {
 
