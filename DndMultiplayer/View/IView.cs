@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer.View
 {
-    public interface GridView
+    public interface IView
     {
-        public void DisplayGrid();
-        public void DisplayError(string msg);
+        public void Display();
 
-        public void DisplayOptions();
+        public char GetPlayerInput();
 
     }
 }

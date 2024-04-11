@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleshipMultiplayer.Application
+namespace BattleshipMultiplayer.Model
 {
-    static class Program
+    internal class ShipCell : Cell
     {
-        public static void Main(string[] args)
+        public override char CellState()
         {
-            
+            return Shot? 'O': '=';
         }
     }
 }

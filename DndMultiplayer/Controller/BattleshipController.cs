@@ -8,39 +8,53 @@ using BattleshipMultiplayer.View;
 
 namespace BattleshipMultiplayer.Controller
 {
-    internal class BattleshipController: GameListener
+    public class BattleshipController: IController
     {
-        private readonly BattleshipGame _game;
+        private const int BOARD_HEIGHT = 10;
+        private const int BOARD_WIDTH = 10;
+        private readonly Player _playerOne;
+        private readonly Player _playerTwo;
+        private bool _playerOneTurn;
+        private readonly Board _battleshipBoard;
 
-        public BattleshipController(BattleshipGame game)
+        //play with bots
+        public BattleshipController()
         {
-            _game = game;
+            _playerOne = new HumanPlayer(1, "Thuan");
+            _playerTwo = new BotPlayer("JFK");
+
+            _battleshipBoard = new Board(BOARD_WIDTH, BOARD_HEIGHT);
+            _playerOne.SetInfo
         }
 
-        public void Notify(Event ev)
+        public BattleshipController(Player p1, Player p2, Board board)
+        {
+            _battleshipBoard = board;
+            _playerOne = p1;
+            _playerTwo = p2;
+        }
+
+        public void SetAnswer()
         {
             throw new NotImplementedException();
         }
 
-        public void ProcessInput()
+        public void Start()
         {
-            string? input = Console.ReadLine();
+            int playerStart = new Random().Next(2);
 
-            try
+            if (playerStart == 0)
             {
-                //split the command based on "space"
-                //if the first input is "quit"
-                //create a "quit" event
-
-            }catch (Exception ex)
-            {
-
+                _playerOneTurn = true;
+                _playerOne.PlayMove();              
             }
-        }
+            else
+            {
+                _playerOneTurn = false;
+                _playerTwo.PlayMove();              
+            }
 
-        public void SetEventHandler(EventManager evManager)
-        {
-            evManager.RegisterListener(this);
         }
     }
+
 }

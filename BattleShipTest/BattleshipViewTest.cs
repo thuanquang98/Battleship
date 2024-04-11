@@ -1,6 +1,5 @@
 using BattleshipMultiplayer;
-using BattleshipMultiplayer.Model;
-using BattleshipMultiplayer.View;
+using BattleshipMultiplayer.Controller;
 
 namespace BattleShipTest
 {
@@ -12,11 +11,9 @@ namespace BattleShipTest
         {
 
             BattleshipGame game = new BattleshipGame();
-            BattleshipTextView view = new BattleshipTextView(game);
+            //BattleshipTextView view = new BattleshipTextView(game);
 
-            view.SetEventHandler(game);
-
-            view.DisplayGrid();
+            //view.Display();
         }
     }
 }

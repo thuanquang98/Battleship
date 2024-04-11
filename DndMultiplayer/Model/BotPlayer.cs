@@ -2,16 +2,13 @@
 
 namespace BattleshipMultiplayer
 {
-    internal class BotPlayer :  Player, IPlayable
+    internal class BotPlayer :  Player
     {
-        public BotPlayer(int id, string name) : base(id, name)
+        public BotPlayer(string name, int width, int height) : base(name, width, height)
         {
         }
 
-        public void PlayMove()
-        {
-            throw new NotImplementedException();
-        }
+        
 
     }
 }

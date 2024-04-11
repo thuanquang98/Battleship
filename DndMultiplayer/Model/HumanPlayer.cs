@@ -2,25 +2,13 @@
 
 namespace BattleshipMultiplayer
 {
-    public class HumanPlayer : Player, IPlayable, Human 
+    public class HumanPlayer : Player 
     {
-        public HumanPlayer(int id, string name) : base(id, name)
+        private readonly uint _id;
+        public HumanPlayer(uint id, string name, int width, int height) : base(name, width, height)
         {
+            _id = id;
         }
 
-        public void PlayMove()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void setAnswer()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void setInfo(int row, int column)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

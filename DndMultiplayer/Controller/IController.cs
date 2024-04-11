@@ -1,15 +1,13 @@
-﻿using BattleshipMultiplayer.Exceptions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleshipMultiplayer
+namespace BattleshipMultiplayer.Controller
 {
-    public interface Human
+    public interface IController
     {
         public void SetAnswer();
-        public void GameOver();
     }
 }

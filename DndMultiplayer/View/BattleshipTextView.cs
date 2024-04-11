@@ -11,16 +11,15 @@ using System.Threading.Tasks;
 
 namespace BattleshipMultiplayer.View
 {
-    public class BattleshipTextView: GridView, GameListener
+    public class BattleshipTextView: IView
     {
-        //link to the game
-        private readonly BattleshipGame _game;
-        private bool _running;
+        private readonly List<GameListener> listeners;
+        private bool myTurn;
+        private Board _myBoard;
 
-        public BattleshipTextView(BattleshipGame game)
+        public BattleshipTextView()
         {
-            _game = game;
-            _running = false;
+            listeners = new List<GameListener>();          
         }
 
         //grid design
@@ -44,17 +43,13 @@ namespace BattleshipMultiplayer.View
         }
 
         //TODO: fill player grid with their object
-        public void DisplayGrid()
+        public static void Display(Board playerBoard)
         {
-            Board playerBoard = _game.GetPlayerBoard();
-            Board enemyBoard = _game.GetOpponentBoard();
 
-            char[,] playerTextGrid = new char[playerBoard.GetBoardHeight(),playerBoard.GetBoardWidth()];
-            char[,] enemyTextGrid = new char[playerBoard.GetBoardHeight(),playerBoard.GetBoardWidth()];
+            char[,] playerTextGrid = new char[playerBoard.BoardWidth,playerBoard.BoardHeight];
 
             //fill water
-            FillWater(playerTextGrid);
-            FillWater(enemyTextGrid);
+            ResetBoard(playerTextGrid);
 
             //TODO: fill player grid with their object
 
@@ -63,13 +58,9 @@ namespace BattleshipMultiplayer.View
             Console.Clear();
             //print the player board
             PrintPlayerBoard(playerTextGrid);
-            //space between the board
-            Console.WriteLine();
-            //print the opponent board
-            PrintPlayerBoard(enemyTextGrid);
         }
 
-        private void FillWater(char[,] board)
+        private static void ResetBoard(char[,] board)
         {
             for (int i = 0; i < board.GetLength(0); i++) 
             {
@@ -80,7 +71,7 @@ namespace BattleshipMultiplayer.View
             }
         }
 
-        private void PrintPlayerBoard(char[,] board)
+        private static void PrintPlayerBoard(char[,] board)
         {
             string[] grid = new string[board.GetLength(0) + 1];
             StringBuilder xGrid = new StringBuilder();
@@ -107,7 +98,7 @@ namespace BattleshipMultiplayer.View
 
         }
 
-        private void DisplayStats()
+        private static void DisplayStats(Board board)
         {
             //display player's name
             //how many ships remaining
@@ -118,37 +109,38 @@ namespace BattleshipMultiplayer.View
             throw new NotImplementedException();
         }
 
-        public void DisplayOptions()
+        public void PrintOptions()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("(1) - Attack\n" +
+                              "(2) - Abilities\n" +
+                              "(h) - Help\n" +
+                              "(q) - Quit");
         }
 
-        private void Start()
-        {
-            _running = true;
-        }
-        
-        public void Notify(Event ev)
+        //TODO: just print the available powers of this player
+        private void PrintAvailableAbilities()
         {
 
-            if (ev is StartEvent)
-            {
-                Start();
-            } else if (ev is GameEvent)
-            {
-                if (_running)
-                {
-                    DisplayGrid();
-                }
-            } else if (ev is StopEvent)
-            {
-                throw new NotImplementedException();
-            }
         }
 
-        public void SetEventHandler(EventManager evManager)
+        public void SetGameState(Board board, bool turn)
         {
-            evManager.RegisterListener(this);
+            
+        }
+
+        public bool GameOver()
+        {
+            //update graphics and display it
+
+            //ask for input from player
+            char input = GetPlayerInput();
+
+            //take input and give it to controller
+        }
+
+        public char GetPlayerInput()
+        {
+            return Console.ReadKey().KeyChar;
         }
     }
 }

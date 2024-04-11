@@ -1,30 +1,26 @@
-﻿namespace BattleshipMultiplayer.Model
+﻿using BattleshipMultiplayer.Controller;
+using BattleshipMultiplayer.View;
+
+namespace BattleshipMultiplayer.Model
 {
-    public class Player
+    public class Player: IPlayable
     {
-        private readonly int player_id;
-        private readonly string player_name;
-        private readonly List<Ship> ships_list;
-        public Player(int id, string name)
+        private readonly BattleshipTextView ui;
+        private string _playerName;
+        private Board playerBoard;
+        public Player(string name, int width, int height)
         {
-            player_id = id;
-            player_name = name;
-            ships_list = new List<Ship>();
+            _playerName = name;
         }
 
-        public int Id
+        public void PlayMove()
         {
-            get => player_id;
+            throw new NotImplementedException();
         }
 
-        public string Name
+        public void SetInfo(IController game)
         {
-            get => player_name;
-        }
-
-        public void AddShip(Ship ship)
-        {
-            ships_list.Add(ship);
+            throw new NotImplementedException();
         }
 
     }
